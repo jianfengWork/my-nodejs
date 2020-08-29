@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jsonp</title>
+    <script>
+      function show({s}) {
+        console.log(s);
+      }
+
+      window.onload = function() {
+        let oTxt = document.getElementById('txt');
+
+        oTxt.oninput = function() {
+          let url = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${this.value}&cb=show`;
+          let oS = document.createElement('script');
+          oS.src = url;
+
+          document.head.appendChild(oS);
+          document.head.removeChild(oS);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" />
+  </body>
+</html>

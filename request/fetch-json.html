@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>fetch</title>
+    <script>
+      window.onload = function() {
+        const oBtn = document.getElementById('btn');
+        oBtn.onclick = async function() {
+          // 1请求
+          const res = await fetch('fetch/fetch-json.json');
+          // 2解析
+          const json = await res.json();
+
+          console.log(json);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="读取 json" id="btn" />
+  </body>
+</html>

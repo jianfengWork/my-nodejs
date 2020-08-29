@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>fetch</title>
+    <script>
+      window.onload = function() {
+        const oBtn = document.getElementById('btn');
+        const oImg = document.getElementById('img')
+        oBtn.onclick = async function() {
+          // 1请求
+          const res = await fetch('fetch/fetch-blob.png');
+          // 2解析
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+
+          oImg.src = url;
+          console.log(url);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="读取 blob" id="btn" /><br />
+    <img id="img" />
+  </body>
+</html>

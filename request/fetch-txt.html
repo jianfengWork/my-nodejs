@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>fetch</title>
+    <script>
+      // 需要起服务器访问
+      window.onload = function() {
+        const oBtn = document.getElementById('btn');
+        oBtn.onclick = async function() {
+          // 1请求
+          const res = await fetch('fetch/fetch-txt.txt'); // 原生请求
+          // 2解析
+          const text = await res.text();
+
+          console.log(text);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="读取 txt" id="btn" />
+  </body>
+</html>

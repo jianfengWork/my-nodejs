@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jsonp</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function (){
+        $('#txt').on('input', function() {
+          $.ajax({
+            url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+            data: {
+              wd: $(this).val()
+            },
+            dataType: 'jsonp',
+            jsonp: 'cb' // 回调函数的字段
+          }).then(({s}) => {
+            console.log(s);
+          }, res => {
+            console.log('失败');
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" />
+  </body>
+</html>
