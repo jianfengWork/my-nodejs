@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>formdata</title>
+  </head>
+  <body>
+    <div id="div">
+      用户：<input type="text" id="user" /><br>
+      密码：<input type="password" id="pass" /><br>
+      文件：<input type="file" id="f1" /><br>
+      <input id="btn" type="button" value="提交" />
+    </div>
+  </body>
+  <script>
+    const oBtn = document.querySelector('#btn');
+    oBtn.onclick = function() {
+      const formdata = new FormData();
+
+      formdata.append('username', document.querySelector('#user').value);
+      formdata.append('password', document.querySelector('#pass').value);
+      formdata.append('f1', document.querySelector('#f1').files[0]);
+
+      // 请求
+      const xhr = new XMLHttpRequest();
+
+      xhr.open('post', 'http://localhost:3030/', true);
+      xhr.send(formdata);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            alert('成功');
+          } else {
+            alert('失败');
+          }
+        }
+      };
+    };
+  </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>formdata</title>
+  </head>
+  <body>
+    <form id="form" action="http://localhost:3030/" method="post">
+      用户：<input type="text" name="user" /><br>
+      密码：<input type="password" name="pass" /><br>
+      文件：<input type="file" name="f1" /><br>
+      <input type="submit" value="提交">
+    </form>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $('#form').on('submit', function() {
+      const formdata = new FormData(this);
+
+      $.ajax({
+        url: this.action,
+        type: this.method,
+        data: formdata,
+        processData: false, // 禁止更改 data
+        contentType: false, // 禁止更改 content-type
+      }).then(res => {
+        alert('成功');
+      }, err => {
+        alert('失败');
+      });
+
+      return false;
+    });
+  </script>
+</html>
