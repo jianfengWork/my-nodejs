@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>websocket-io</title>
+    <script src="http://localhost:3030/socket.io/socket.io.js" charset="utf-8"></script>
+    <script>
+      const sock = io.connect('ws://localhost:3030/')
+
+      sock.emit('count', 12, 5)
+
+      sock.on('timer', time => {
+        console.log(time)
+      })
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

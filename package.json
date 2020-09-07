@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "http.js",
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
-    "multiparty": "^4.2.2"
+    "multiparty": "^4.2.2",
+    "socket.io": "^2.3.0"
   },
   "scripts": {
     "dev": "node http.js"
