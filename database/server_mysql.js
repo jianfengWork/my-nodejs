@@ -4,7 +4,7 @@ const url = require('url')
 const fs = require('fs')
 
 // 1.连接到服务器
-const db = mysql.createConnection({ host: 'localhost', user: 'root', password: '', database: '20181101' })
+const db = mysql.createConnection({ host: 'localhost', user: 'root', password: 'jianfeng', database: 'jianfeng' })
 
 // const db = mysql.createPool({
 //   connectionLimit: 10, // 最大连接数，默认 10

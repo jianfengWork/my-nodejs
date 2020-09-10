@@ -10,6 +10,11 @@
     2.创建数据库：CREATE DATABASE 数据库名;
     3.选择数据库：use 数据库名;
     4.创建数据表
+
+  nodejs报错：ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol
+  解决：
+    1.mysql -u root -p
+    2.ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'jianfeng';
 ```
 
 # 数据库：

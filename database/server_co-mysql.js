@@ -27,7 +27,7 @@ const validator = {
 }
 
 //1.连接到服务器
-let conn = mysql.createPool({ host: 'localhost', user: 'root', password: '', database: '20181101' })
+let conn = mysql.createPool({ host: 'localhost', user: 'root', password: 'jianfeng', database: 'jianfeng' })
 let db = co(conn)
 
 //2.跟http配合
