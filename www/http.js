@@ -5,9 +5,14 @@ let server = http.createServer((req, res) => { // 请求 req => 请求来的数�
   // console.log('有请求')
   console.log(req.url) // http://localhost:3030/index.html => /index.html
   if (req.url === '/index.html') {
-    fs.readFile('www/index.html', (err, data) => {
-      res.writeHead(200) // 写入状态码
-      res.write(data)
+    fs.readFile('index.html', (err, data) => {
+      if (err) {
+        res.writeHeader(404)
+        res.write('not found')
+      } else {
+        res.writeHead(200) // 写入状态码
+        res.write(data)
+      }
       res.end()
     })
   } else {
