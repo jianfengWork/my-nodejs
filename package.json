@@ -5,7 +5,9 @@
   "main": "http.js",
   "dependencies": {},
   "devDependencies": {
+    "co-mysql": "^1.0.0",
     "multiparty": "^4.2.2",
+    "mysql": "^2.18.1",
     "socket.io": "^2.3.0"
   },
   "scripts": {
