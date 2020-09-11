@@ -2,6 +2,7 @@ const http = require('http')
 const mysql = require('mysql')
 const co = require('co-mysql')
 const url = require('url')
+const querystring = require('querystring')
 const fs = require('fs')
 const validator = {
   username(user) {
@@ -32,7 +33,48 @@ let db = co(conn)
 
 //2.跟http配合
 http.createServer(async (req, res) => {
-  const { pathname, query } = url.parse(req.url, true)
+  let pathname, query
+  if (req.method === 'POST') {
+    pathname = url.parse(req.url, true).pathname
+    let arr = []
+    req.on('data', buffer => { // 监听data事件
+      arr.push(buffer) // 每段请求数据
+    })
+    req.on('end', async () => {
+      let buffer = Buffer.concat(arr) // 利用 Buffer 连接
+      query = querystring.parse(buffer.toString())
+      
+      let { username, password } = query
+      //0.参数是否正确
+      let err = validator.username(query.username)
+      if (err) {
+        res.write(err)
+      } else {
+        let err = validator.password(query.password)
+        if (err) {
+          res.write(err)
+        } else {
+          try {
+            let data = await db.query(`SELECT ID,password FROM user_table WHERE username='${username}'`)
+            if (data.length == 0) {
+              res.write('用户名不存在')
+            } else if (data[0].password != password) {
+              res.write('密码不对')
+            } else {
+              res.write('成功')
+            }
+          } catch (e) {
+            res.write('数据库出错')
+            console.log(e)
+          }
+        }
+      }
+      res.end()
+    })
+  } else {
+    pathname = url.parse(req.url, true).pathname
+    query = url.parse(req.url, true).query
+  }
 
   if (pathname == '/reg') {
     let { username, password } = query
@@ -66,32 +108,32 @@ http.createServer(async (req, res) => {
     //2.密码对不对
     //3.返回
 
-    let { username, password } = query
-    //0.参数是否正确
-    let err = validator.username(query.username)
-    if (err) {
-      res.write(err)
-    } else {
-      let err = validator.password(query.password)
-      if (err) {
-        res.write(err)
-      } else {
-        try {
-          let data = await db.query(`SELECT ID,password FROM user_table WHERE username='${username}'`)
-          if (data.length == 0) {
-            res.write('用户名不存在')
-          } else if (data[0].password != password) {
-            res.write('密码不对')
-          } else {
-            res.write('成功')
-          }
-        } catch (e) {
-          res.write('数据库出错')
-          console.log(e)
-        }
-      }
-    }
-    res.end()
+    // let { username, password } = query
+    // //0.参数是否正确
+    // let err = validator.username(query.username)
+    // if (err) {
+    //   res.write(err)
+    // } else {
+    //   let err = validator.password(query.password)
+    //   if (err) {
+    //     res.write(err)
+    //   } else {
+    //     try {
+    //       let data = await db.query(`SELECT ID,password FROM user_table WHERE username='${username}'`)
+    //       if (data.length == 0) {
+    //         res.write('用户名不存在')
+    //       } else if (data[0].password != password) {
+    //         res.write('密码不对')
+    //       } else {
+    //         res.write('成功')
+    //       }
+    //     } catch (e) {
+    //       res.write('数据库出错')
+    //       console.log(e)
+    //     }
+    //   }
+    // }
+    // res.end()
   } else {
     fs.readFile('.' + pathname, (err, buffer) => {
       if (err) {

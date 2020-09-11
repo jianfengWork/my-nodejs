@@ -29,6 +29,7 @@
   $('#login').click(async () => {
     let data = await $.ajax({
       url: 'http://localhost:3030/login',
+      type: 'POST',
       data: {
         username: $('#user').val(),
         password: $('#pass').val(),
