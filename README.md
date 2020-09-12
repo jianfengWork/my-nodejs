@@ -8,7 +8,10 @@
   2.资源使用不均匀
 ```
 
-### 读写流：压缩、加密
+### 读写流
+```
+  压缩、加密
+```
 
 ### 启动器：forever
 ```
@@ -50,4 +53,15 @@
 ### 框架：效率高，稳定性高
 ```
   1.express：简单，技术落后(Promise, generater)
+    get(url, (req, res, next) => {})
+    post(url, (req, res, next) => {})
+    use(url, (req, res, next) => {})
+
+  中间件，增加这个框架的功能：
+    multer：       处理 file 数据
+    body-parser：  处理普通 post 数据
+    cookie-parser：不能跨域访问，最大 4K，存在浏览器，请求时会发给服务器，安全性差，使用签名方式相对安全
+      1.普通 cookie：req.cookies
+      2.sign cookie：req.signedCookies
+    cookie-session：存储在服务器，不是独立的，基于cookie
 ```
