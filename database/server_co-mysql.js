@@ -48,6 +48,7 @@ http.createServer(async (req, res) => {
       //0.参数是否正确
       let err = validator.username(query.username)
       if (err) {
+        res.setHeader('content-type', 'application/x-www-form-urlencoded; charset=UTF-8')
         res.write(err)
       } else {
         let err = validator.password(query.password)

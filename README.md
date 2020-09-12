@@ -21,6 +21,13 @@
   forever list           查看 serve 列表
 ```
 
+### content-type
+```
+  1.application/x-www-form-urlencoded; charset=UTF-8，普通文本数据
+  2.application/json; charset=UTF-8，发送 json 数据
+  3.multipart/form-data; 文件 file 二进制数据
+```
+
 ### manager 项目
 ```
   1.环境变量配置：config > index.js
@@ -38,4 +45,9 @@
     5-2.post请求：分为两种
       普通数据：req.on('data', buffer => {} );   req.on('end', () => {} );
       文件数据：multiparty;
+```
+
+### 框架：效率高，稳定性高
+```
+  1.express：简单，技术落后(Promise, generater)
 ```
