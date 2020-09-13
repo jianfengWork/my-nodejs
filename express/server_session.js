@@ -20,5 +20,5 @@ server.get('/index', (req, res) => {
 
   req.session['pass'] = 12345;
 
-  res.send(`欢迎你第${req.session['user']}到访本站，你的余额是：${req.session['user']}`);
+  res.send(`欢迎你第${req.session['user']}到访本站，你的密码是：${req.session['pass']}`);
 });

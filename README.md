@@ -51,8 +51,10 @@
 ```
 
 ### 框架：效率高，稳定性高
+
+  #### express
 ```
-  1.express：简单，技术落后(Promise, generater)
+  简单，技术落后(Promise, generater)，适合小型应用
     get(url, (req, res, next) => {})
     post(url, (req, res, next) => {})
     use(url, (req, res, next) => {})
@@ -64,4 +66,39 @@
       1.普通 cookie：req.cookies
       2.sign cookie：req.signedCookies
     cookie-session：存储在服务器，不是独立的，基于cookie
+```
+  #### KOA
+```
+  适合大型应用
+  v1  generator
+  v2  过渡版   generator 和 async
+  v3  async/await
+
+  ctx.method： 请求方法
+  ctx.url：    url
+  ctx.path：   路径部分，不包括域名和 query
+  ctx.query：  query 数据
+  ctx.ip：     客户端的 IP
+  ctx.headers：请求头
+
+  ctx.throw(code, msg)：      报错并退出
+  ctx.assert(条件, code, msg)：断言测试
+
+  中间件：
+    koa-router：路由管理
+      router.get(url, async (ctx, next) => {})
+      router.post(url, async (ctx, next) => {})
+      router.all(url, async (ctx, next) => {}) 什么请求方法都认可
+      1.嵌套路由
+        /user
+          /company
+          /
+          /admin
+        /news
+          /sport
+          /woman
+        /cart
+      2.参数：/news/:id/
+    koa-static：处理静态文件的访问
+    koa-better-body：处理 file 和 post 数据
 ```
