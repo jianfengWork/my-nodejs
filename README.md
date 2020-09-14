@@ -101,4 +101,5 @@
       2.参数：/news/:id/
     koa-static：处理静态文件的访问
     koa-better-body：处理 file 和 post 数据
+    koa-session: 操作 session
 ```

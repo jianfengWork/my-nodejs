@@ -10,7 +10,7 @@ server.keys = [
   'hjghjkfguig8ygyi8t78i8',
 ];
 server.use(session({
-  // key: '', 对  重命名
+  // key: '', 对 koa.sess 重命名
   maxAge: 20 * 60 * 1000, // 有效期
   renew: true, // 自动续期
 }, server));
