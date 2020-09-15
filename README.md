@@ -1,16 +1,42 @@
-### 流操作
+### NODE 库
+  #### http
 ```
-  fs.readFile('www/index.html', (err, buffer) => {
-    res.wrtie(buffer);
-  });
+  const http = require('http')：起服务
+```
+  #### fs
+```
+  const fs = require('fs')：读写文件
 
-  1.占用内存
-  2.资源使用不均匀
+  fs.readFile：占用内存、资源使用不均匀
+  fs.createReadStream：流操作，压缩、加密
 ```
-
-### 读写流
+  #### await-fs：cnpm i await-fs -D
 ```
-  压缩、加密
+  const fs = require('await-fs')：async 读写文件
+```
+  #### assert
+```
+  const assert = require('assert')：断言测试
+```
+  #### url
+```
+  const url = require('url')：处理 http:\/\/www.bing.com:8080/a/b/1.html?a=1&a=2&a=3
+```
+  #### path
+```
+  const path = require('path')：路径 /a/b/1.html
+```
+  #### querystring
+```
+  const querystring = require('querystring')：处理请求参数 username=jianfeng&password=12345
+```
+  #### zlib
+```
+  const zlib = require('zlib')：开启 gzip
+```
+  #### crypto
+```
+  const crypto = require('crypto')：加密 md5、sha1
 ```
 
 ### 启动器：forever
@@ -98,8 +124,9 @@
           /sport
           /woman
         /cart
-      2.参数：/news/:id/
+      2.参数路由：/news/:id/
     koa-static：处理静态文件的访问
     koa-better-body：处理 file 和 post 数据
     koa-session: 操作 session
+    koa-ejs：koa 服务端渲染
 ```
