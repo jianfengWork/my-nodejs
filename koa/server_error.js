@@ -4,21 +4,22 @@ const Router = require('koa-router');
 const server = new Koa();
 server.listen(3030);
 
-server.use(async (ctx, next) => {
-  try {
-    await next();
-  } catch (e) {
-    ctx.body = 'server 出错';
-  }
-});
+// server.use(async (ctx, next) => {
+//   try {
+//     await next();
+//   } catch (e) {
+//     ctx.body = 'server 出错';
+//   }
+// });
 
 const router = new Router();
 
-router.all('', async ctx => { // * 匹配所有路由
+router.use(async (ctx, next) => {
   try {
     await next();
   } catch (e) {
-    ctx.body = 'router 出错';
+    console.log(e)
+    ctx.throw(500, 'router 出错');
   }
 });
 

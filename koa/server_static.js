@@ -21,7 +21,7 @@ staticRouter.all(/(\.css)$/i, static('../www', {
 staticRouter.all(/(\.html|\.htm|\.shtml)$/i, static('../www', {
   maxage: 20 * 86400 * 1000
 }));
-staticRouter.all('', static('../www', { // 其他文件 '' = 根
+staticRouter.all('', static('../www', { // * = 其他文件，'' = 根
   maxage: 30 * 86400 * 1000
 }));
 
