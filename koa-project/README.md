@@ -2,6 +2,8 @@
 ```
   目录：
     template：服务端渲染-模版
+      login.ejs：登录页
+      table.ejs：主页
 
     routers：公共路由
       '/' + 'news' = /news
