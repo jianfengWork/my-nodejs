@@ -27,9 +27,7 @@
 
     gen_key.js：生成 key，循环密钥 node gen_key
 
-    admins.json：管理员信息
+    admins.json：管理员信息 jianfeng 123456
 
     md5.js：给 password 加密
-
-  库：
 ```

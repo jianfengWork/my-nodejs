@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `cpts`
+-- 数据库： `jianfeng`
 --
 
 -- --------------------------------------------------------
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `article_table` (
   `comment` int(11) NOT NULL,
   `summary` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `list_img_src` varchar(32) NOT NULL,
-  `banner_img_src` varchar(32) NOT NULL,
+  `list_img_src` varchar(64) NOT NULL,
+  `banner_img_src` varchar(64) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

@@ -64,6 +64,20 @@
       SELECT 字段列表 FROM <表> WHERE 条件 ORDER BY 字段 LIMIT 30,30;
 ```
 
+### SQL——语句
+```
+  SELECT
+  *, // 其余字段
+  article_table.title AS article_title, // AS > 别名
+  catalog_table.title AS catalog_title,
+  article_table.ID AS article_ID
+  FROM article_table LEFT JOIN // LEFT JOIN > 左连接，article_table 是主表，
+  catalog_table ON article_table.catalog_ID=catalog_table.ID // ON 连接依据 id 相等
+  ORDER BY article_table.created_time DESC LIMIT 10 // ORDER BY > 排序
+
+  SELECT * FROM article_table WHERE title LIKE '%aaa%' // like > 模糊搜索
+```
+
 ### createPool：连接池，空闲的连接拿出来用，用完再放回去
 
 ### co-mysql：异步 mysql，本身是个包装器，是对 myspl 的封装，可以使用异步操作 
