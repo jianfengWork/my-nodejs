@@ -45,7 +45,7 @@
   cnpm i gulp-sourcemaps -D
 
   sourcemaps.init() 先初始化
-  uglify() 再标记
+  uglify() 再编译
   sourcemaps.write() 最后写
 ```
   #### gulp-cssmin 压缩 css
@@ -67,7 +67,7 @@
   ])
 
   gifsicle：图层交换
-  interlaced：隔行扫描，先整体模糊，再着行清晰
+  interlaced：隔行扫描，先整体模糊，再逐行清晰
 
   mozjpeg：优化 jpeg
   progressive：渐进式，同 interlaced
@@ -81,5 +81,5 @@
 
   2.装依赖：cnpm i gulp-livereload -D
 
-  3.装chrome插件：livereload_2_1_0_0.crx
+  3.装 chrome 插件：./livereload_2_1_0_0.crx
 ```
