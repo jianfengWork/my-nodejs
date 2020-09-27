@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6, // 版本
+    "sourceType": "module", // 模块
+    "ecmaFeatures": { // jsx 是否启用
+      "jsx": true
+    }
+  },
+  "rules": {
+    "indent": ["error", 2], // 缩进
+    "quotes": ["error", "double"], // 引号，双引号
+    "semi": ["error", "always"] // 结尾要分号
+  }
+}
