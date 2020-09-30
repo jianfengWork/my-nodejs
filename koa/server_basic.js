@@ -8,6 +8,13 @@ server.context.global = { // 相当于ctx的prototype，通过 ctx.global 访问
   desc: 'koa',
 }
 
+server.use(async (ctx, next) => {
+  console.log('允许跨域')
+  ctx.set('Access-Control-Allow-Origin', '*');
+
+  await next();
+});
+
 const router = new Router();
 
 router.get('/index', async (ctx, next) => {
