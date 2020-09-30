@@ -17,7 +17,7 @@
   cnpm i webpack webpack-cli webpack-dev-server -D
 
   首先 webpack-dev-server 会读 webpack.config.js，
-  编译的结果不会写到资盘上，而是放在缓存里，追求编译速度，
+  编译的结果不会写到资盘上，而是放在内存里，追求编译速度，
   启动位置：相对于根目录启动
 
   普通编译：<script src="./build/main.min.js" charset="utf-8"></script>
@@ -62,4 +62,23 @@
   #### eslint-loader 代码质量
 ```
   cnpm i eslint eslint-loader -D
+```
+  #### html-webpack-plugin 模版 html
+```
+  cnpm i eslint html-webpack-plugin -D
+
+  const HtmlWebpackPlugin = require('html-webpack-plugin')
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    }),
+  ]
+```
+  #### vue-loader 解析 .vue
+```
+  cnpm i vue-loader vue-style-loader vue-html-loader vue-template-compiler -D
+
+  vue-style-loader：解析 .vue 内部 style，并与外部的 .css 文件融合
+  vue-html-loader：解析 .vue 内部 templete
+  vue-template-compiler：编译 .vue 组件
 ```

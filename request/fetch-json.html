@@ -15,6 +15,19 @@
           console.log(json);
         };
       };
+
+      async function fn_submit() {
+        const formdata = new FormData()
+        formdata.append('a', 1)
+        formdata.append('b', 2)
+
+        const res = await fetch(url, {
+          method: 'post',
+          body: formdata, // 传送的数据
+        })
+        const result = await res.json()
+        console.log(result)
+      }
     </script>
   </head>
   <body>
