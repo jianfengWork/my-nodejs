@@ -117,8 +117,8 @@
       router.all(url, async (ctx, next) => {}) 什么请求方法都认可
       1.嵌套路由
         /user
-          /company
           /
+          /company
           /admin
         /news
           /sport

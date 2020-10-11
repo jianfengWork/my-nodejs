@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const Router = require('koa-router');
+const uuid = require('node-uuid');
 
 const server = new Koa();
 server.listen(3030);
@@ -51,6 +52,20 @@ router.get('/state', async ctx => {
 router.get('/redirect', async ctx => {
   ctx.redirect('/index')
   // ctx.redirect('https://www.baidu.com/')
+});
+
+// token
+router.get('/token', async ctx => {
+  const token = uuid.v4().replace(/\-/g, '');
+  const token_expires = Math.floor((Date.now() + (3600 * 2)) / 1000);
+  ctx.body = 'ok：' + token + '：' + token_expires
+
+  // const now = Math.floor(Date.now() / 1000);
+  // if (now > token_expires) { // 此处 token_expires 取 ID，token，对应
+  //   ctx.body = {err: 1, msg: 'token expired'};
+  // } else {
+  //   ctx.body = 'ok'
+  // }
 });
 
 // ctx.attachment() 下载文件
