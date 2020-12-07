@@ -13,7 +13,8 @@
               wd: $(this).val()
             },
             dataType: 'jsonp',
-            jsonp: 'cb' // 回调函数的字段
+            jsonp: 'cb', // 自定义参数名字（cb=show}
+            jsonpCallback: 'show', // 自定义回调函数的名字，可以不传
           }).then(({s}) => {
             console.log(s);
           }, res => {

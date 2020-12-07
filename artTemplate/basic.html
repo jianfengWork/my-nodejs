@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>basic-demo</title>
+  <script src="./js/template.js"></script>
+</head>
+<body>
+  <div id="content"></div>
+<script id="test" type="text/html">
+  {{if isAdmin}}
+
+  <h1>{{title}}</h1>
+  <ul>
+      {{each list as value i}}
+          <li>索引 {{i + 1}} ：{{value}}</li>
+      {{/each}}
+  </ul>
+
+  {{/if}}
+</script>
+
+<script>
+  var data = {
+    title: '基本例子',
+    isAdmin: true,
+    list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+  };
+  // template的作用就是把模板和数据拼接到一块生成一个静态HTML片段，实际就是该方法的返回值
+  var html = template('test', data); // 参数一：模板id 参数二：用来渲染的数据
+  document.getElementById('content').innerHTML = html;
+</script>
+</body>
+
+</html>
