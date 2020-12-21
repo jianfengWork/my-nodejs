@@ -39,6 +39,21 @@
   const crypto = require('crypto')：加密 md5、sha1
 ```
 
+### NODE BASIC
+```
+  __dirname  路径  /Users/jianfeng/www
+  __filename 路径  /Users/jianfeng/www/http.js
+
+  setInterval(() => {}, 1000)
+  setTimeout(() => {}, 1000)
+
+  process.argv 一个数组，arguments[0] = node环境路径，arguments[1] = 当前执行 js 文件的全路径
+  node xx.js 1 2 => [ , , 1, 2]
+
+  文件后缀
+  .js  .json  .node 二进制
+```
+
 ### 启动器：forever
 ```
   npm i forever -g
