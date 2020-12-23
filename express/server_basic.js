@@ -13,7 +13,7 @@ server.get('/index', (req, res, next) => {
 
   // throw new Error('有错'); // 抛出错误
 
-  next(); // 调用下个请求方法
+  next(); // 调用下个请求方法，本质是中间件
 });
 
 server.get('/index', (req, res, next) => {
@@ -25,4 +25,4 @@ server.use('/user', (req, res, next) => { // 什么请求都可接收 get post p
 });
 
 // 从上往下执行，放最后
-server.use(express.static('../www/'));
+server.use(express.static('../www/')); // 应用级中间件

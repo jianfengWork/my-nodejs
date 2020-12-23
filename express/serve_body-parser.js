@@ -11,7 +11,7 @@ server.use(body.urlencoded({
 }));
 
 // const querystring = require('querystring');
-// server.use((req, res, next) => { // 自己的 fn
+// server.use((req, res, next) => { // 2.自己的 fn
 //   const arr = [];
 //   req.on('data', buffer => {
 //     arr.push(buffer);
