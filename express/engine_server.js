@@ -23,5 +23,5 @@ app.get('/template', (req, res) => {
 });
 
 app.listen(3030, () => {
-  console.log('running http://loaalhost:3030/template');
+  console.log('running http://localhost:3030/template');
 });
