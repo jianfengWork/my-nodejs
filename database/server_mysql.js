@@ -28,7 +28,7 @@ http.createServer((req, res) => {
       res.write('密码最大32个字')
       res.end()
     } else {
-      //1.检查用户名是不是用过
+      // 1.检查用户名是不是用过
       db.query(`SELECT ID FROM user_table WHERE username='${username}'`, (err, data) => {
         if (err) {
           res.write('数据库有错')
@@ -37,7 +37,7 @@ http.createServer((req, res) => {
           res.write('此用户名已被占用')
           res.end()
         } else {
-          //2.插入
+          // 2.插入
           db.query(`INSERT INTO user_table (username, password) VALUES('${username}', '${password}')`, err => {
             if (err) {
               res.write('数据库有错')
@@ -51,9 +51,9 @@ http.createServer((req, res) => {
       })
     }
   } else if (pathname == '/login') {
-    //1.检查用户是否存在
-    //2.密码对不对
-    //3.返回
+    // 1.检查用户是否存在
+    // 2.密码对不对
+    // 3.返回
   } else {
     fs.readFile(pathname, (err, buffer) => {
       if (err) {

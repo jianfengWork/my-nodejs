@@ -27,11 +27,11 @@ const validator = {
   }
 }
 
-//1.连接到服务器
+// 1.连接到服务器
 let conn = mysql.createPool({ host: 'localhost', user: 'root', password: 'jianfeng', database: 'jianfeng' })
 let db = co(conn)
 
-//2.跟http配合
+// 2.跟http配合
 http.createServer(async (req, res) => {
   let pathname, query
   if (req.method === 'POST') {
@@ -41,11 +41,11 @@ http.createServer(async (req, res) => {
       arr.push(buffer) // 每段请求数据
     })
     req.on('end', async () => {
-      let buffer = Buffer.concat(arr) // 利用 Buffer 连接
+      let buffer = Buffer.concat(arr) // 使用 Buffer 连接
       query = querystring.parse(buffer.toString())
       
       let { username, password } = query
-      //0.参数是否正确
+      // 0.参数是否正确
       let err = validator.username(query.username)
       if (err) {
         res.setHeader('content-type', 'application/x-www-form-urlencoded; charset=UTF-8')
@@ -79,7 +79,7 @@ http.createServer(async (req, res) => {
 
   if (pathname == '/reg') {
     let { username, password } = query
-    //0.参数是否正确
+    // 0.参数是否正确
     let err = validator.username(query.username)
     if (err) {
       // res.setHeader('content-type', 'application/x-www-form-urlencoded; charset=UTF-8')
@@ -91,7 +91,7 @@ http.createServer(async (req, res) => {
       if (err) {
         res.write(err)
       } else {
-        //1.检查用户名是不是用过
+        // 1.检查用户名是不是用过
         try {
           let data = await db.query(`SELECT ID FROM user_table WHERE username='${username}'`)
           if (data.length > 0) {
@@ -107,13 +107,13 @@ http.createServer(async (req, res) => {
     }
     res.end()
   } else if (pathname == '/login') {
-    //0.检查用户名密码、格式
-    //1.检查用户是否存在
-    //2.密码对不对
-    //3.返回
+    // 0.检查用户名密码、格式
+    // 1.检查用户是否存在
+    // 2.密码对不对
+    // 3.返回
 
     // let { username, password } = query
-    // //0.参数是否正确
+    // // 0.参数是否正确
     // let err = validator.username(query.username)
     // if (err) {
     //   res.write(err)

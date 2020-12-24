@@ -14,7 +14,7 @@ http.createServer((req, res) => {
     arr.push(buffer) // 每段请求数据
   })
   req.on('end', () => {
-    let buffer = Buffer.concat(arr) // 利用 Buffer 连接
+    let buffer = Buffer.concat(arr) // 使用 Buffer 连接
     query = queryString.parse(buffer.toString())
     complete()
   })

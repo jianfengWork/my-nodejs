@@ -21,6 +21,7 @@
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
     "express": "^4.17.1",
+    "express-art-template": "^1.0.1",
     "file-loader": "^6.1.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
