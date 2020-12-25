@@ -44,6 +44,10 @@
   __dirname  路径  /Users/jianfeng/www
   __filename 路径  /Users/jianfeng/www/http.js
 
+  req.query  请求参数
+  req.params 路径参数
+  req.body   body参数
+
   setInterval(() => {}, 1000)
   setTimeout(() => {}, 1000)
 

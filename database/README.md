@@ -7,7 +7,7 @@
 
   操作：
     1.登录：mysql -u root -p
-    2.创建数据库：CREATE DATABASE 数据库名;
+    2.创建数据库：CREATE DATABASE 数据库名(jianfeng);
     3.选择数据库：use 数据库名;
     4.创建数据表
 
@@ -15,6 +15,7 @@
   解决：
     1.mysql -u root -p
     2.ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'jianfeng';
+    3.use jianfeng
 ```
 
 ### 数据库：
