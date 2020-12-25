@@ -76,7 +76,7 @@
   3.multipart/form-data; 文件 file 二进制数据
 ```
 
-### manager 项目
+### node-project 项目
 ```
   1.环境变量配置：config > index.js
     1-1.开发环境配置：config > config.dev.js

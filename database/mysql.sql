@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `item_table`;
 CREATE TABLE IF NOT EXISTS `item_table` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(32) NOT NULL,
+  `name` varchar(32) NOT NULL,
   `price` float NOT NULL,
   `count` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `item_table` (
 -- 转存表中的数据 `item_table`
 --
 
-INSERT INTO `item_table` (`ID`, `title`, `price`, `count`) VALUES
+INSERT INTO `item_table` (`ID`, `name`, `price`, `count`) VALUES
 (1, '测试', 19.8, 298),
 (2, 'item1', 19.8, 200);
 

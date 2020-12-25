@@ -1,8 +1,8 @@
 const db = require('../libs/database');
 module.exports = async (res, get, post, files) => {
-  const { title, price, count } = post;
+  let { name, price, count } = post;
 
-  if (!title || !price || !count) {
+  if (!name || !price || !count) {
     res.writeJson({ error: 1, msg: 'params invaild' });
     res.end();
   } else {
@@ -14,7 +14,7 @@ module.exports = async (res, get, post, files) => {
       res.end();
     } else {
       try {
-        await db.query('INSERT INTO item_table (title, price, count) VALUES(?,?,?)', [title, price, count]); // 防止 sql 注入
+        await db.query('INSERT INTO item_table (name, price, count) VALUES(?,?,?)', [name, price, count]); // 防止 sql 注入
 
         res.writeJson({ error: 0, msg: 'success' });
       } catch (e) {
