@@ -1,5 +1,6 @@
 /*
-  业务模块，只有 operation 与 express-json 不同
+  业务模块
+  使用 路径参数
 */
 const db = require('./db.js');
 
@@ -35,7 +36,7 @@ exports.addBook = (req, res) => {
 
 // 跳转编辑图书页面
 exports.toEditBook = (req, res) => {
-  let id = req.query.id;
+  let id = req.params.id;
 
   const sql = 'select * from book where id=?';
   const data = [id];
@@ -59,7 +60,7 @@ exports.editBook = (req, res) => {
 
 // 删除图书信息
 exports.deleteBook = (req, res) => {
-  let id = req.query.id;
+  let id = req.params.id;
 
   const sql = 'delete from book where id=?';
   const data = [id];
