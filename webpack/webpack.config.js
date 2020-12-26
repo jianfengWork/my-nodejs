@@ -19,6 +19,10 @@ module.exports = {
         test: /\.less$/,
         loader: ['style-loader', 'css-loader', 'less-loader'],
       },
+      {
+        test: /\.scss$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader'],
+      },
       // {
       //   test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       //   loader: 'file-loader',
@@ -27,12 +31,20 @@ module.exports = {
       //   }
       // },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/, // 处理图片
         loader: 'url-loader',
         options: {
           limit: 1024 * 32, // 32kb 以下的打包成 base64
           outputPath: 'images/',
         }
+      },
+      {
+        test: /\.(ttf|eot|svg|woff|woff2)(\?.*)?$/,
+        loader: 'url-loader',
+      },
+      {
+        test: /\.vue$/i,
+        loader: 'vue-loader',
       },
       {
         test: /\.js$/i,
@@ -50,9 +62,12 @@ module.exports = {
     ],
   },
   devtool: 'source-map', // 保留原始代码
+  devServer: {},
 }
 
-/** 多入口 */
+/**
+ * 多入口
+*/
 // module.exports = {
 //   mode: 'development',
 //   entry: { // 入口

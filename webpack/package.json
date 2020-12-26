@@ -10,13 +10,16 @@
     "@babel/preset-env": "^7.11.5",
     "autoprefixer": "^10.0.0",
     "babel-loader": "^8.1.0",
+    "bootstrap": "^3.4.1",
     "css-loader": "^4.3.0",
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
     "file-loader": "^6.1.0",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
+    "node-sass": "^5.0.0",
     "postcss-loader": "^3.0.0",
+    "sass-loader": "^10.1.0",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.2",
@@ -24,7 +27,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --open --port 3030 --contentBase src --hot"
   },
   "keywords": [],
   "author": "",
