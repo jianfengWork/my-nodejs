@@ -3,6 +3,8 @@ import '../css/main.css'
 import '../css/main.less'
 import '../css/main.scss'
 
+// import $ from 'jquery'
+
 var a = 1
 const aa = 11
 console.log(aa)

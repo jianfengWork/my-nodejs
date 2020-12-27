@@ -1,4 +1,6 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -7,13 +9,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].min.js'
+    filename: 'js/[name].min.js'
   },
   module: { // 模块
     rules: [
       {
         test: /\.css$/,
-        loader: ['style-loader', 'css-loader', ], // 从后向前运行 'postcss-loader'
+        loader: ['style-loader', 'css-loader',], // 从后向前运行 'postcss-loader'
       },
       {
         test: /\.less$/,
@@ -63,6 +65,17 @@ module.exports = {
   },
   devtool: 'source-map', // 保留原始代码
   devServer: {},
+  plugins: [
+    new HtmlWebpackPlugin({ // 生成内存中的页面
+      template: path.resolve(__dirname, './src/index.html'),
+      filename: 'index.html', // 指定生成页面名称
+      minify: {
+        collapseWhitespace: true, // 压缩html
+        removeComments: true, // 移除注释
+      },
+    }),
+    new CleanWebpackPlugin(), // 清理 build 文件夹
+  ]
 }
 
 /**
