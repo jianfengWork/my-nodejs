@@ -14,6 +14,12 @@
           const json = await res.json();
 
           console.log(json);
+
+          fetch('fetch/fetch-json.json').then(res => {
+            return res.json() // Promise
+          }).then(data => {
+            document.querySelector('#content').innerHTML = `<span>${data.username}</span>:<span>${data.password}</span>`
+          })
         };
       };
 
@@ -33,5 +39,6 @@
   </head>
   <body>
     <input type="button" value="读取 json" id="btn" />
+    <div id="content"></div>
   </body>
 </html>
