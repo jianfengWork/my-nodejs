@@ -59,6 +59,7 @@ export default class HelloWorld extends Vue {
   @Provide() rules: object = {
     name: [{ required: true, message: '请输入活动名称', trigger: 'blur' }],
   }
+  $message: any;
 
   // methods
   addCount() {
