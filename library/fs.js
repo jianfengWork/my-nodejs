@@ -10,6 +10,10 @@ fs.writeFile('../www/demo.txt', '13', err => { // 写入数据并创建文件
   if (err) console.log(err)
 })
 
+fs.appendFile('../www/demo.txt', '14', err => { // 追加数据，没有文件时并创建文件
+  if (err) console.log(err)
+})
+
 fs.readFile('../www/demo.txt', (err, data) => {
   if (err) return console.log(err)
   console.log(data)

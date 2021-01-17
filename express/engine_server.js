@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 // 设置模板的路径
-app.set('views', path.resolve(__dirname, 'view'));
+app.set('views', path.resolve(__dirname, 'art'));
 // 设置模板引擎
 app.set('view engine', 'art'); // app.set('view engine', 'ejs'); 使用配套语法
 
