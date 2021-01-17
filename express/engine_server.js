@@ -19,7 +19,7 @@ app.get('/template', (req, res) => {
     list: ['apple', 'orange', 'banana']
   }
   // 参数一：模板名称；参数二：渲染模板的数据
-  res.render('template', data);
+  res.render('template', data); // express 自带函数
 });
 
 app.listen(3030, () => {

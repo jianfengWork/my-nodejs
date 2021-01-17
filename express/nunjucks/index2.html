@@ -1,0 +1,10 @@
+<div>继承 layout</div>
+{% extends "layout.html" %}
+
+{% block body %}
+  <form action="http://localhost:3030/score" method="post">
+    请输入考号：<input type="text" name="code" value="no123" />
+    <input type="submit" value="查询" />
+  </form>
+  <div><a href="http://localhost:3030/all">全部成绩</a></div>
+{% endblock %}

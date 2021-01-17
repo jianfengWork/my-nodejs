@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>查询成绩</title>
+</head>
+<body>
+  {% include "header.html" %}
+  {% block body %}
+  <form action="http://localhost:3030/score" method="post">
+    请输入考号：<input type="text" name="code" value="no123" />
+    <input type="submit" value="查询" />
+  </form>
+  <div><a href="http://localhost:3030/all">全部成绩</a></div>
+  {% endblock %}
+  {% include "footer.html" %}
+  {% include "layout.html" %}
+</body>
+</html>

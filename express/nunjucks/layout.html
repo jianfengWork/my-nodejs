@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>查询成绩</title>
+  {% block style %}
+  {% endblock %}
+</head>
+<body>
+  <!-- 引入 header -->
+  {% include "header.html" %}
+  <!-- 该内容要出现在 body 块 -->
+  {% block body %}
+    <h1>这是插入 layout</h1>
+  {% endblock %}
+  <!-- 引入 footer -->
+  {% include "footer.html" %}
+</body>
+{% block script %}
+<script>
+  console.log('nunjucks')
+</script>
+{% endblock %}
+</html>
