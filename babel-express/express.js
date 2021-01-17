@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express'
 
 const server = express();
 server.listen(3030);
@@ -26,7 +26,3 @@ server.use('/user', (req, res, next) => { // 什么请求都可接收 get post p
 
 // 从上往下执行，放最后
 server.use(express.static('../www/')); // 应用级中间件
-
-// 配置访问路径
-// app.use('/www', express.static('public'));
-{/* <link rel="stylesheet" type="text/css" href="/www/style.css"></link> */ } // 虚拟路径

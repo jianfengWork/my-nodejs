@@ -58,6 +58,13 @@
   .js  .json  .node 二进制
 ```
 
+### 启动器: nodemon
+```
+  npm i nodemon -g
+
+  nodemon ./main.js  启动
+```
+
 ### 启动器：forever
 ```
   npm i forever -g
