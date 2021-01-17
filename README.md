@@ -58,7 +58,7 @@
   .js  .json  .node 二进制
 ```
 
-### 启动器: nodemon
+### 监听器: nodemon
 ```
   npm i nodemon -g
 
@@ -118,6 +118,31 @@
       1.普通 cookie：req.cookies
       2.sign cookie：req.signedCookies
     cookie-session：存储在服务器，不是独立的，基于cookie
+
+  应用：
+  1.路由处理
+    express/server_basic.js
+
+  2.body处理
+    express/serve_body-parser.js
+  
+  3.报错处理
+    express/server_basic.js
+
+  4.静态资源处理
+    express/server_basic.js
+    express-db/server.js
+
+  5.文件处理
+    express/server_multer.js
+
+  6.模版处理
+    express/art_server.js
+    express/nunjucks_server.js
+    express/engine_server.js
+
+  7.数据库处理
+    express-db/db.js
 ```
   #### KOA
 ```
@@ -155,4 +180,32 @@
     koa-better-body：处理 file 和 post 数据
     koa-session: 操作 session
     koa-ejs：koa 服务端渲染
+
+  应用：
+  1.路由处理
+    koa/server_basic.js
+    koa/server_router.js
+    koa-project/server.js
+
+  2.body处理
+    koa/server_body.js
+    koa-project/server.js
+  
+  3.报错处理
+    koa/server_error.js
+    koa-project/server.js
+
+  4.静态资源处理
+    koa/server_static.js
+    koa-project/routers/static.js
+
+  5.文件处理
+    koa/server_body.js
+
+  6.模版处理
+    koa-project/server.js
+    koa-render/server_ejs.js
+
+  7.数据库处理
+    koa/server_database.js
 ```

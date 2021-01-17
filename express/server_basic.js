@@ -18,10 +18,23 @@ server.get('/index', (req, res, next) => {
 
 server.get('/index', (req, res, next) => {
   res.send(req.userinfo);
+  return next() // 有错误信息 return 到 server.use('/')
 });
 
 server.use('/user', (req, res, next) => { // 什么请求都可接收 get post put delete
   res.send({ msg: '我是 use' })
+});
+
+server.use('/', (req, res, next) => { // 什么请求都可接收 拦截错误信息
+
+  console.log('next')
+  try { // 无错，接着走
+    next()
+  } catch (e) { // 有错 抛出错误
+    console.log(e)
+    res.send({ msg: e })
+  }
+  
 });
 
 // 从上往下执行，放最后

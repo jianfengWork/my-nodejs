@@ -36,7 +36,7 @@ ejs(server, {
   debug: false
 });
 
-server.use(async (ctx, next) => {
+server.use(async (ctx, next) => { // 统一处理 error
   let { HTTP_ROOT } = ctx.config;
 
   try {

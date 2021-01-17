@@ -9,7 +9,7 @@
     1.登录：mysql -u root -p
     2.创建数据库：CREATE DATABASE 数据库名(jianfeng);
     3.选择数据库：use 数据库名;
-    4.创建数据表：show tables; 查看数据库中的表
+    4.创建数据表; show tables: 查看数据库中的表
 
   nodejs报错：ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol
   解决：
@@ -23,7 +23,7 @@
   1.类型
     文件型数据库：sqlite，简单，适用于单个用户，手机App适用
     关系型数据库：MySQL、Oracle，功能性强大，但是性能不是最高
-    分布式数据库：mongoDB，分散请求，数据安全性高，
+    分布式数据库：MongoDB，分散请求，数据安全性高，
     NoSQL：memcache、redis，性能高，功能性不强
 
   2.管理工具
