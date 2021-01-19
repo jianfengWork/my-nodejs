@@ -6,10 +6,12 @@
     1.PATH="$PATH":/usr/local/mysql/bin
 
   操作：
-    1.登录：mysql -u root -p
-    2.创建数据库：CREATE DATABASE 数据库名(jianfeng);
-    3.选择数据库：use 数据库名;
-    4.创建数据表; show tables: 查看数据库中的表
+    登录：mysql -u root -p
+    创建数据库：CREATE DATABASE 数据库名(jianfeng);
+    删除数据库：drop database 数据库名;
+    选择数据库：use 数据库名;
+    创建数据表: 复制 ./mysql.sql 表的结构;
+    查看数据表: show tables;
 
   nodejs报错：ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol
   解决：

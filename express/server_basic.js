@@ -3,6 +3,14 @@ const express = require('express');
 const server = express();
 server.listen(3030);
 
+const router = express.Router()
+
+router.use('/router', (req, res, next) => { // 什么请求都可接收 get post put delete
+  res.send({ msg: '我是 express router' })
+});
+
+server.use(router)
+
 // http://localhost:3030/index?user=summer&pass=12345
 
 server.get('/index', (req, res, next) => {

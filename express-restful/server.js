@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 
 // 配置路由
 app.use(router);
+
 // 监听端口
 app.listen(3030, () => {
   console.log('running http://localhost:3030/');
