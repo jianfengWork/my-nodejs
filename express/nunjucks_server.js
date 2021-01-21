@@ -17,6 +17,7 @@ server.use(body.urlencoded({ // 解析 body
 nunjucks.configure(path.join(__dirname, 'nunjucks'), { // 配置 nunjucks 模版引擎
   autoescape: true,
   express: server,
+  noCache: true, // 不缓存文件
 })
 
 server.get('/query', (req, res, next) => { // 渲染首页
