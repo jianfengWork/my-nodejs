@@ -5,7 +5,7 @@ const fs = require('await-fs');
 
 let router = new Router();
 
-//
+// 渲染登录页
 router.get('/login', async ctx => {
   await ctx.render('admin/login', {
     HTTP_ROOT: ctx.config.HTTP_ROOT,
@@ -33,12 +33,12 @@ router.post('/login', async ctx => {
 
   let admin = findAdmin(username);
   if (!admin) {
-    //ctx.body='no this user';
+    // ctx.body = 'no this user';
     ctx.redirect(`${HTTP_ROOT}/admin/login?errmsg=${encodeURIComponent('用户不存在')}`);
   } else if (admin.password != common.md5(password + ctx.config.ADMIN_SUFFIX)) {
     ctx.redirect(`${HTTP_ROOT}/admin/login?errmsg=${encodeURIComponent('密码不对')}`);
   } else {
-    //success
+    // success
     ctx.session['admin'] = username;
     ctx.redirect(`${HTTP_ROOT}/admin/`);
   }
@@ -51,7 +51,7 @@ router.all('*', async (ctx, next) => {
   if (ctx.session['admin']) {
     await next();
   } else {
-    //ctx.body='你不是管理员';
+    // ctx.body='你不是管理员';
     ctx.redirect(`${HTTP_ROOT}/admin/login`);
   }
 });

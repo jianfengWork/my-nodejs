@@ -12,7 +12,7 @@ let server = new Koa();
 server.listen(config.PORT);
 console.log(`server running at ${config.PORT}`);
 
-//中间件
+// 中间件
 server.use(body({
   uploadDir: config.UPLOAD_DIR
 }));
@@ -23,11 +23,11 @@ server.use(session({
   renew: true
 }, server));
 
-//数据库
+// 数据库
 server.context.db = require('./libs/database');
 server.context.config = config;
 
-//渲染
+// 渲染
 ejs(server, {
   root: path.resolve(__dirname, 'template'),
   layout: false,
@@ -54,20 +54,20 @@ server.use(async (ctx, next) => { // 统一处理 error
   }
 });
 
-//路由和static
+// 路由和static
 let router = new Router();
 
-//统一处理
-/*router.use(async (ctx, next)=>{
-  try{
-    await next();
-  }catch(e){
-    ctx.throw(500, 'Internal Server Error');
-
-    console.log(e);
-  }
-});*/
-
+// 统一处理
+/*
+  router.use(async (ctx, next) => {
+    try {
+      await next();
+    } catch(e) {
+      ctx.throw(500, 'Internal Server Error');
+      console.log(e);
+    }
+  });
+*/
 
 router.use('/admin', require('./routers/admin'));
 router.use('/api', require('./routers/api'));

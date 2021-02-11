@@ -11,7 +11,7 @@ module.exports = function (fields, table, page_type) {
     'article': '文章管理',
   };
 
-  //通用
+  // 通用
   router.get('/', async ctx => {
     const { HTTP_ROOT } = ctx.config;
 
@@ -91,7 +91,7 @@ module.exports = function (fields, table, page_type) {
     let { id } = ctx.params;
     let { UPLOAD_DIR, HTTP_ROOT } = ctx.config;
 
-    //获取原来的
+    // 获取原来的
     let rows = await ctx.db.query(`SELECT * FROM ${table} WHERE ID=?`, [id]);
     ctx.assert(rows.length, 400, 'no this data');
 
@@ -102,7 +102,7 @@ module.exports = function (fields, table, page_type) {
       }
     });
 
-    //
+    // 循环改值
     let keys = [];
     let vals = [];
     let src_changed = {};
@@ -124,11 +124,11 @@ module.exports = function (fields, table, page_type) {
       }
     });
 
-    //
+    // UPDATE 更新数据
     await ctx.db.query(`UPDATE ${table} SET ${keys.map(key => (`${key}=?`)).join(',')
       } WHERE ID=?`, [...vals, id]);
 
-    fields.forEach(async ({ name, type }) => {
+    fields.forEach(async ({ name, type }) => { // 删除旧文件
       if (type == 'file' && src_changed[name]) {
         await common.unlink(path.resolve(UPLOAD_DIR, paths[name]));
       }
