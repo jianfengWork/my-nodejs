@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 
-const token = '7CwvplxmBgce3pEtbSQ5j0meC77V4IYl';
+const token = '7CwvplxmBgce3pEtbSQ5j0meC77V4IYl'; // 订阅号管理后台，填写的token
 
 // 我方服务器验证微信服务器身份
 module.exports = function (query) {
