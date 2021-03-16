@@ -30,7 +30,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --port 3030 --contentBase src --hot"
+    "start": "webpack-dev-server --open --port 3030 --contentBase src --hot --config webpack.config.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",

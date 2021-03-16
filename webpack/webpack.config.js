@@ -6,6 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     main: './src/js/main.js',
+    app: './src/js/app',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -64,7 +65,9 @@ module.exports = {
     ],
   },
   devtool: 'source-map', // 保留原始代码
-  devServer: {},
+  devServer: { // webpack-dev-server 配置入口
+    hot: true, // 开启热更新
+  },
   plugins: [
     new HtmlWebpackPlugin({ // 生成内存中的页面
       template: path.resolve(__dirname, './src/index.html'),
@@ -73,9 +76,19 @@ module.exports = {
         collapseWhitespace: true, // 压缩html
         removeComments: true, // 移除注释
       },
+      chunks: ['main'],
+    }),
+    // http://localhost:3030/app.html
+    new HtmlWebpackPlugin({ // 可以生成多个页面，并使用单独入口文件
+      title: 'App',
+      filename: 'app.html', // 指定生成页面名称
+      chunks: ['app'], // 使用 app.js 为入口文件
     }),
     new CleanWebpackPlugin(), // 清理 build 文件夹
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.css', '.less', '.scss', '.jsx'], // 自动补全识别后缀
+  },
 }
 
 /**

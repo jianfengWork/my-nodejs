@@ -11,6 +11,8 @@
   #### 编写配置
 ```
   webpack.config.js
+
+  指定配置文件：webpack --config webpack.html.config.js
 ```
   #### webpack-dev-server 热更新
 ```
@@ -24,15 +26,18 @@
   --port 3030 运行端口3030
   --contentBase src 默认会访问 / 路径下的 index.html，可以指定为 src
   --hot 热重载，只更改局部代码
+  --config 指定起服务使用的配置文件 --config webpack.html.config.js
 
   普通编译：<script src="./build/main.min.js" charset="utf-8"></script>
   dev-server编译：<script src="/main.min.js" charset="utf-8"></script>
   
-  不能直接命令行启动，需要 package.json：npm run start
+  不能直接命令行启动，需要 package.json：npm run start，文件会更新在 内存
   "scripts": {
     ...,
     "start": "webpack-dev-server"
   }
+  
+  打包发布需要 webpack 命令(package.json：npm run build)，将最新代码写入磁盘
 ```
   #### css-loader style-loader 处理 css
 ```
