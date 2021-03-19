@@ -7,11 +7,12 @@
 
   操作：
     登录：mysql -u root -p
-    创建数据库：CREATE DATABASE 数据库名(jianfeng);
-    删除数据库：drop database 数据库名;
-    选择数据库：use 数据库名;
+    创建数据库: CREATE DATABASE 数据库名(jianfeng);
+    删除数据库: drop database 数据库名;
+    选择数据库: use 数据库名;
     创建数据表: 复制 ./mysql.sql 表的结构;
     查看数据表: show tables;
+    导出数据表: mysqldump -u root -p user_table(数据表名) > user_table.sql
 
   nodejs报错：ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol
   解决：
