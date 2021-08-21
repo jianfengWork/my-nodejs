@@ -81,6 +81,7 @@ module.exports = {
     // http://localhost:3030/app.html
     new HtmlWebpackPlugin({ // 可以生成多个页面，并使用单独入口文件
       title: 'App',
+      // template: path.resolve(__dirname, './src/app.html'), // 指定打包 html
       filename: 'app.html', // 指定生成页面名称
       chunks: ['app'], // 使用 app.js 为入口文件
     }),
