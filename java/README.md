@@ -113,3 +113,44 @@
       2.避免了强制类型转换
       3.优化了程序设计，让程序更安全
 ```
+
+#### 错误处理
+```
+  异常的体系：
+  Throwable
+    Error
+    Exception
+      RuntimeException：运行期异常
+      非RuntimeException：编译期异常
+  
+  异常的处理：
+    1.JVM 默认处理：把异常的名称，原因，位置等信息输出在控制台
+    2.用户处理：try...catch...finally、throws
+```
+
+#### IO流 - File
+```
+  构造方法：
+    File file = new File("e:\\demo\\a.txt");
+    File file = new File("e:\\demo", "a.txt");
+  
+  File类的功能：
+    创建功能
+    删除功能
+    重命名功能
+    判断功能
+    获取功能
+    高级获取功能
+    过滤器功能
+  
+  分类：
+    1.流向
+      输入流：读取数据
+      输出流：写出数据
+    2.数据类型
+      字节流：字节输入流、字节输出流
+      字符流：字符输入流、字符输出流
+    3.读写
+      FileOutputStream：写出数据
+      FileInputStream：读取数据
+```
