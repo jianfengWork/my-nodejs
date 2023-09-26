@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <vtitle title="你是傻逼" @myclick="printVal" />
+    <vtitle title="hello world" @myclick="printVal" />
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
